@@ -66,6 +66,10 @@
         release_name: 'istiod'
         chart_ref: 'istiod'
         release_namespace: 'istio-system'
+        values:
+          istio_cni:
+            enabled: true
+            chained: true
 
     - name: 'Install the Istio Ingressgateway via helm chart'
       # running this from vagrant fails, if we target localhost directly
