@@ -45,6 +45,19 @@
         chart_ref: 'base'
         release_namespace: 'istio-system'
 
+    - name: 'Install Istio cni via helm chart'
+      # running this from vagrant fails, if we target localhost directly
+      delegate_to: 'localhost'
+      kubernetes.core.helm:
+        chart_repo_url: 'https://istio-release.storage.googleapis.com/charts'
+        release_name: 'istio-cni'
+        chart_ref: 'cni'
+        release_namespace: 'kube-system'
+        values:
+          cni:
+            enabled: true
+            chained: true
+
     - name: 'Install Istiod via helm chart'
       # running this from vagrant fails, if we target localhost directly
       delegate_to: 'localhost'
