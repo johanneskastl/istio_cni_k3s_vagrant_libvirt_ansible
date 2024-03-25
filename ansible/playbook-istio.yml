@@ -66,7 +66,7 @@
         chart_ref: 'istiod'
         release_namespace: 'istio-system'
 
-    - name: 'Install Istiod via helm chart'
+    - name: 'Install the Istio Ingressgateway via helm chart'
       # running this from vagrant fails, if we target localhost directly
       delegate_to: 'localhost'
       kubernetes.core.helm:
