@@ -1,7 +1,8 @@
-# istio_k3s_vagrant_libvirt_ansible
+# istio_cni_k3s_vagrant_libvirt_ansible
 
 Vagrant-libvirt setup that creates a VM with k3s and installs
-[Istio](https://istio.io/).
+[Istio](https://istio.io/). Rather than injecting sidecar containers, this setup
+uses the [Istio CNI](https://istio.io/latest/docs/setup/additional-setup/cni/).
 
 A nginx pod is running in the default namespace, and the deployments sets up all
 required Istio configuration so it is reachable from the outside.
