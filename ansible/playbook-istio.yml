@@ -36,18 +36,6 @@
         kind: 'Namespace'
         state: 'present'
 
-    - name: 'Label the default namespace'
-      # running this from vagrant fails, if we target localhost directly
-      delegate_to: 'localhost'
-      kubernetes.core.k8s:
-        state: 'patched'
-        kind: 'Namespace'
-        name: 'default'
-        definition:
-          metadata:
-            labels:
-              istio-injection: enabled
-
     - name: 'Install Istio base via helm chart'
       # running this from vagrant fails, if we target localhost directly
       delegate_to: 'localhost'
